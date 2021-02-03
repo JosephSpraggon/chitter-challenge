@@ -1,3 +1,15 @@
+User instructions:
+-------
+* Connect to psql
+* Create the database using the psql command CREATE DATABASE chitter;
+* Connect to the database using the pqsl command \c chitter;
+* Run the query we have saved in the file 01_create_peeps_table.sql
+
+* Also create a test database using the psql command CREATE DATABASE chitter_test;
+* Connect to the test database using the pqsl command \c chitter_test;
+* Run the query we have saved in the file 01_create_peeps_table.sql
+
+
 Chitter Challenge
 =================
 

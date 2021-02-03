@@ -2,23 +2,18 @@ require 'sinatra/base'
 
 class Chitter < Sinatra::Base
 
-  # enable :sessions
-  # set :sessions_secret, 'super secret'
-
   get '/' do
-    'Welcome to Chitter'
+    erb :index
   end
 
-  get '/post_peep' do
-    erb :post_peep
+  get '/peep' do
+    erb :peep
   end
 
-  post'/timeline' do
-    @peep = params[:peep]
+  post '/timeline' do
+    @peeps = Peep.all
     erb :timeline
   end
-
-
 
   run if app_file == $0
 end
