@@ -12,7 +12,7 @@ describe Peep do
 
       peeps = Peep.all
 
-      expect(peeps).to include('My first Peep')
+      expect(peeps).to include 'My first Peep'
       expect(peeps).to include 'My second Peep'
       expect(peeps).to include 'My third Peep'
     end
