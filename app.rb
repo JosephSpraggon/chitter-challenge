@@ -13,8 +13,7 @@ class Chitter < Sinatra::Base
     erb :post_peep
   end
 
-  get '/timeline' do
-    p params[:peep]
+  post'/timeline' do
     @peep = params[:peep]
     erb :timeline
   end
