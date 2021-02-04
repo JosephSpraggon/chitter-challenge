@@ -2,5 +2,7 @@ Chitter Timeline!
 
 <ul>
   <% @peeps.map do |peep| %>
-    <li><%= peep %><% end %><% @time.map do |time| %><%= time %><% end %></li>
+    <li><%= peep.peep %> <%= peep.posted %>
+    <% end %>
+    </li>
 </ul>

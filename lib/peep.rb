@@ -3,14 +3,18 @@ require './lib/database_connection'
 
 class Peep
 
-  def self.all
-    result = DatabaseConnection.query('SELECT * FROM peeps ORDER BY posted DESC;')
-    result.map {|peep| peep['peep']}
+  attr_reader :peep, :posted
+
+  def initialize(peep:, posted:)
+    @peep = peep
+    @posted = posted
   end
 
-  def self.time
+  def self.all
     result = DatabaseConnection.query('SELECT * FROM peeps ORDER BY posted DESC;')
-    result.map {|peep| peep['posted']}
+    result.map {|peep| 
+      Peep.new(peep: peep['peep'], posted: peep['posted'])
+    }
   end
 
   def self.create(peep:)

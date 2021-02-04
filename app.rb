@@ -20,7 +20,6 @@ class Chitter < Sinatra::Base
   post '/timeline' do
     Peep.create(peep: params['peep'])
     @peeps = Peep.all
-    @time = Peep.time
     erb :timeline
   end
 

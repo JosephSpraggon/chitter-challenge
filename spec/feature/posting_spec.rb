@@ -12,7 +12,7 @@ feature 'Posting a Peep' do
     fill_in :peep, with: 'Hello Chitter'
     click_button 'Peep'
     expect(page).to have_content 'Hello Chitter'
-    page.find('#Peep', :visible => true)
+    # page.find('#Peep', :visible => true)
   end
 
 end
