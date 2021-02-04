@@ -4,11 +4,10 @@ describe Peep do
 
   describe '.all' do
     it 'returns a list of all peeps' do
-      connection = PG.connect(dbname: 'chitter_test')
 
-      connection.exec("INSERT INTO peeps (peep, posted) VALUES('My first Peep', NOW());")
-      connection.exec("INSERT INTO peeps (peep, posted) VALUES('My second Peep', NOW());")
-      connection.exec("INSERT INTO peeps (peep, posted) VALUES('My third Peep', NOW());")
+      Peep.create(peep: 'My first Peep')
+      Peep.create(peep: 'My second Peep')
+      Peep.create(peep: 'My third Peep')
 
       peeps = Peep.all
 
@@ -18,5 +17,14 @@ describe Peep do
     end
 
   end
+
+  describe '.create' do
+    it 'adds a peep to the list' do
+      Peep.create(peep: 'Hello Chitter')
+
+      expect(Peep.all). to include 'Hello Chitter'
+    end
+  end
+      
 
 end
