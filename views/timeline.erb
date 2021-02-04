@@ -1,7 +1,6 @@
 Chitter Timeline!
 
 <ul>
-  <% @timeline.each do |peep| %>
-    <li><%= peep %></li>
-  <% end %>
+  <% @peeps.map do |peep| %>
+    <li><%= peep %><% end %><% @time.map do |time| %><%= time %><% end %></li>
 </ul>

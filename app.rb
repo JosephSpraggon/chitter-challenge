@@ -13,13 +13,14 @@ class Chitter < Sinatra::Base
   end
 
   get '/timeline' do
-    @timeline = Peep.all
+    @peeps = Peep.all
     erb :timeline
   end
 
   post '/timeline' do
     Peep.create(peep: params['peep'])
-    @timeline = Peep.all
+    @peeps = Peep.all
+    @time = Peep.time
     erb :timeline
   end
 

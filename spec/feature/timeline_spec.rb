@@ -19,4 +19,14 @@ feature 'Chitter timeline' do
     expect(page).to have_content 'Second peep'
   end
 
+  scenario 'display peeps in descending chronological order, newest first' do
+    visit ('/peep')
+    fill_in :peep, with: 'Hello Chitter'
+    click_button 'Peep'
+    visit ('/peep')
+    fill_in :peep, with: 'Latest Peep'
+    click_button 'Peep'
+    expect(page.text.index('Latest Peep')).to be < page.text.index('Hello Chitter')
+  end
+
 end
