@@ -11,9 +11,10 @@ describe Peep do
 
       peeps = Peep.all
 
-      expect(peeps).to include 'My first Peep'
-      expect(peeps).to include 'My second Peep'
-      expect(peeps).to include 'My third Peep'
+      expect(peeps.length).to eq 3
+      expect(peeps[2].peep).to include 'My first Peep'
+      expect(peeps[1].peep).to include 'My second Peep'
+      expect(peeps.first.peep).to include 'My third Peep'
     end
 
   end
@@ -22,7 +23,7 @@ describe Peep do
     it 'adds a peep to the list' do
       Peep.create(peep: 'Hello Chitter')
 
-      expect(Peep.all). to include 'Hello Chitter'
+      expect(Peep.all.first.peep).to include 'Hello Chitter'
     end
   end
       
